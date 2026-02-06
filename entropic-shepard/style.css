@@ -1,0 +1,119 @@
+:root {
+    --primary-color: #ff6b6b;
+    --primary-hover: #fa5252;
+    --secondary-color: #f1f3f5;
+    --secondary-hover: #e9ecef;
+    --text-color: #495057;
+    --bg-gradient-start: #ffe3e3;
+    --bg-gradient-end: #ffa8a8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    /* Prevent scrolling when button moves */
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    padding: 2.5rem 2rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px var(--shadow-color);
+    position: relative;
+    /* Context for button positioning if needed, though we might move no-btn to body for wider range */
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.gif-container {
+    margin-bottom: 2rem;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cute-gif {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 12px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    /* We don't want relative here because we want NO button to fly freely */
+}
+
+.btn {
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    cursor: pointer;
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+    box-shadow: 0 8px 15px rgba(255, 107, 107, 0.3);
+}
+
+/* Ensure Yes button grows over the No button */
+.btn-primary {
+    z-index: 10;
+    position: relative;
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    position: relative;
+    /* Initial position */
+    transition: all 0.3s ease;
+    /* Smooth movement */
+}
